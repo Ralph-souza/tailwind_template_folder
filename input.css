@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// Using @layer allows us to create components so we do not fill or HTML with lots of classes
+@layer base {
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@layer components {
+    .btn-indigo {
+        @apply bg-indigo-500 text-white py-2 px-4 rounded-xl font-bold hover:bg-indigo-800;
+    }
+}
