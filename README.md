@@ -6,6 +6,28 @@ This is a basic Tailwind starting template, there were some configurations when 
 
 In order to run TailwindCSS we have to install / update our node to v14 our higher.
 
+## Install or update NodeJS version
+
+We can run the following commands in order to install or update NodeJS and NPM packages
+
+> $ sudo npm cache clean -f
+
+> $ sudo npm install -g n
+
+> $ sudo n stable
+
+> $ sudo n latest
+
+**TO FIX PATH**
+
+> $ sudo apt-get install --reinstall nodejs-legacy
+
+**TO UNDO**
+
+> $ sudo n rm **version**
+
+> $ sudo npm uninstall -g n
+
 ## Steps taken to install Tailwind CLI
 
 First of all i created a package.json file, to do that run the following command:
