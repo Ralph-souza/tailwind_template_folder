@@ -45,9 +45,30 @@ After that we create **tailwind.config.js** file by running the following comman
 The official Tailwind DOCs says that inside **tailwind.config.js** in **content:** we should copy the following string *"./src/**/*.{html,js}"* however what we do in this template is:
 
     module.exports = {
-        content: ['./*.html'],
+        content: [
+            './build/*.html'
+        ],
         theme: {
-            extend: {},
+            screens: {
+                sm: '640px',
+                md: '768px',
+                lg: '1024px',
+                xl: '1444px',
+            },
+            extend: {
+                colors: {
+                    primaryColor: 'hsl()',
+                    secondaryColor: 'hsl()',
+                    tertiaryColor: 'hsl()',
+                    lightGray: 'hsl(0, 0%, 77%)',
+                    mediumGray: 'hsl(0, 0%, 50%)',
+                    darkGray: 'hsl(0, 0%, 23%)',
+                },
+                fontFamily: {
+                    title: ['', ''],
+                    body: ['', ''],
+                }
+            },
         },
         plugins: [],
     }
@@ -62,11 +83,14 @@ After that we create a input.css file with the following:
 >
 >@tailwind utilities;
 
+**OBS**: There is a possibility of a warning sign is showed because of the **@** to fix that just go to **configuration** on VSCode than in the search area type in **unknown**, there will
+be a area with the following description **CSS > Lint: Unknown At Rules**, choose **ignore**, that will fix it.
+
 Now we create NPM scripts so that we can run our TailwindCSS. Inside the *package.json* file are going to replace line 7 for these 2(two) command scripts:
 
-> "build": "tailwindcss -i ./input.css -o ./css/style.css",
+> "build": "tailwindcss -i ./src/input.css -o ./build/assets/css/style.css",
 >
->"watch": "tailwindcss -i ./input.css -o ./css/style.css --watch"
+>"watch": "tailwindcss -i ./src/input.css -o .build/assets/css/style.css --watch"
 
 The first one will build our CSS directory and the *style.css* file, the second we run to keep Tailwind under watch to compile structures changes.
 
